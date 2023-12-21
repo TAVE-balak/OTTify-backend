@@ -9,11 +9,12 @@ import tavebalak.OTTify.genre.repository.GenreRepository;
 
 @Service
 @RequiredArgsConstructor
-@Transactional(readOnly = false)
+@Transactional(readOnly = true)
 public class GenreService {
     private final GenreRepository genreRepository;
     private final WebClient webClient;
 
+    @Transactional
     public void saveAllGenre(){
         OpenApiGenreListResponseDto movieGenreDto=getGenreListFrom("movie");
         saveGenre(movieGenreDto);
