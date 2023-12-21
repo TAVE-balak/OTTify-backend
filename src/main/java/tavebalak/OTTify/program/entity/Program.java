@@ -17,7 +17,7 @@ public class Program {
     private String posterPath;
     private double averageRating;
     private int reviewCount;
-    private Long tmdb_program_id;
+    private Long tmDbProgramId;
     @Enumerated(EnumType.STRING)
     private ProgramType type;
 

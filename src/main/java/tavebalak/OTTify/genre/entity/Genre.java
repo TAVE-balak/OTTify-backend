@@ -17,5 +17,5 @@ public class Genre {
     @Column(name = "genre_id")
     private Long id;
     private String name;
-    private Long tmdb_genre_id;
+    private Long tmDbGenreId;
 }
