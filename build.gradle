@@ -40,7 +40,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
-
+	implementation group: 'com.google.code.gson', name: 'gson', version: '2.6.2'
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
 	//querydsl 추가
 	implementation 'com.querydsl:querydsl-jpa'
 	implementation 'com.querydsl:querydsl-apt'
