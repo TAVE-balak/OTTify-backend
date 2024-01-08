@@ -1,6 +1,7 @@
 package tavebalak.OTTify.user.entity;
 
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import tavebalak.OTTify.program.entity.Program;
@@ -18,4 +19,10 @@ public class UninterestedProgram {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "program_id")
     private Program program;
+
+    @Builder
+    public UninterestedProgram(Program program,User user){
+        this.user = user;
+        this.program = program;
+    }
 }

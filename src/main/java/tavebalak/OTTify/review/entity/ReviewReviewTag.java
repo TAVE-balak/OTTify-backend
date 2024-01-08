@@ -1,6 +1,7 @@
 package tavebalak.OTTify.review.entity;
 
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -20,4 +21,11 @@ public class ReviewReviewTag {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "review_tag_id")
     private ReviewTag reviewTag;
+
+
+    @Builder
+    public ReviewReviewTag(ReviewTag reviewTag,Review review){
+        this.reviewTag = reviewTag;
+        this.review = review;
+    }
 }

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.parameters.P;
 import tavebalak.OTTify.genre.entity.Genre;
 import tavebalak.OTTify.genre.entity.ProgramGenre;
+import tavebalak.OTTify.review.entity.Review;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -57,6 +58,45 @@ public class Program {
     public void addGenre(Genre genre){
         ProgramGenre programGenre=ProgramGenre.builder().genre(genre).program(this).build();
         programGenreList.add(programGenre);
+    }
+
+    // 프로그램과 리뷰 양방향 관계 세팅
+    @OneToMany(mappedBy = "program", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> reviewList = new ArrayList<>();
+
+    public void addReview(Review review){
+        this.reviewList.add(review);
+
+        double beforeRatingSum = this.averageRating * this.reviewCount;
+        double afterRatingSum = beforeRatingSum + review.getRating();
+
+        this.reviewCount++;
+        this.averageRating = afterRatingSum / this.reviewCount;
+
+    }
+
+    //리뷰 삭제시 평점 변화
+
+    public void deleteReview(Review review){
+        double beforeRatingSum = this.averageRating * this.reviewCount;
+        double afterRatingSum = beforeRatingSum - review.getRating();
+
+        this.reviewCount--;
+        if(this.reviewCount==0){
+            this.averageRating = 0;
+        }
+        else{
+            this.averageRating = afterRatingSum / this.reviewCount;
+        }
+
+        reviewList.remove(review);
+    }
+
+    //리뷰 점수 업데이트시 평점 변화
+    public void changeProgramReviewRatingAndRecalculatingAverage(double beforeRating, double afterRating){
+        double beforeRatingSum = averageRating * reviewCount;
+        double afterRatingSum = beforeRatingSum - beforeRating + afterRating;
+        averageRating = afterRatingSum / reviewCount;
     }
 
 }
