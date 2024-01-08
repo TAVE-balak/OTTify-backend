@@ -41,7 +41,7 @@ public class User extends BaseEntity {
     private Role role;
 
     private String code; //구글, 네이버의 로그아웃, 탈퇴를 위한 코드
-    
+
     @Builder
     public User(String email, String nickName, String profilePhoto, SocialType socialType, Role role, String code) {
         this.email = email;
@@ -75,10 +75,17 @@ public class User extends BaseEntity {
         }
     }
 
-        public void changeUserRole(){
+    public void changeUserRole(){
         role = Role.USER;
     }
 
     public void changeCode(String code) { this.code = code; }
+
+    public void changeNickName(String nickName) {
+        this.nickName = nickName;
+    }
+    public void changeProfilePhoto(String profilePhoto) {
+        this.profilePhoto = profilePhoto;
+    }
 
 }

@@ -22,7 +22,7 @@ import tavebalak.OTTify.program.repository.OttRepository;
 import tavebalak.OTTify.user.entity.User;
 import tavebalak.OTTify.user.entity.UserSubscribingOTT;
 import tavebalak.OTTify.user.repository.UserRepository;
-import tavebalak.OTTify.user.repository.UserSubscribingOTTRepository;
+import tavebalak.OTTify.user.repository.UserSubscribingOttRepository;
 
 import java.net.URI;
 import java.util.List;
@@ -38,7 +38,7 @@ import static tavebalak.OTTify.error.ErrorCode.SIGNIN_EXPIRED;
 public class OauthService {
     private final UserRepository userRepository;
     private final OttRepository ottRepository;
-    private final UserSubscribingOTTRepository userSubscribingOTTRepository;
+    private final UserSubscribingOttRepository userSubscribingOTTRepository;
     private final UserGenreRepository userGenreRepository;
     private final GenreRepository genreRepository;
     private final RefreshTokenService tokenService;

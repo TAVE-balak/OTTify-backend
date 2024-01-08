@@ -9,7 +9,7 @@ import tavebalak.OTTify.common.BaseResponse;
 import tavebalak.OTTify.community.dto.*;
 import tavebalak.OTTify.community.service.CommunityService;
 import tavebalak.OTTify.community.service.ReplyService;
-import tavebalak.OTTify.exception.NotFoundException;
+import tavebalak.OTTify.error.exception.NotFoundException;
 
 import javax.validation.Valid;
 import javax.websocket.server.PathParam;

@@ -19,7 +19,6 @@ public class Ott {
     private Long id;
 
     private String name;
-
     private String logoPath;
 
     @Builder

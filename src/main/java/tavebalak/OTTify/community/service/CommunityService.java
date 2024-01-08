@@ -3,7 +3,7 @@ package tavebalak.OTTify.community.service;
 import org.springframework.data.domain.Pageable;
 import tavebalak.OTTify.community.dto.*;
 import tavebalak.OTTify.community.entity.Community;
-import tavebalak.OTTify.exception.NotFoundException;
+import tavebalak.OTTify.error.exception.NotFoundException;
 
 import java.util.List;
 
