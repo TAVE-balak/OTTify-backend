@@ -8,6 +8,7 @@ import tavebalak.OTTify.user.dto.Response.CommunityListWithSliceInfoDTO;
 import tavebalak.OTTify.user.dto.Response.ReviewListWithSliceInfoDTO;
 import tavebalak.OTTify.user.dto.Response.UserOttListDTO;
 import tavebalak.OTTify.user.dto.Response.UserProfileDTO;
+import tavebalak.OTTify.user.dto.Response.UserRoleDto;
 
 public interface UserService {
 
@@ -30,4 +31,6 @@ public interface UserService {
     CommunityListWithSliceInfoDTO getHostedDiscussion(Pageable pageable);
 
     CommunityListWithSliceInfoDTO getParticipatedDiscussion(Pageable pageable);
+
+    UserRoleDto getUserRole();
 }

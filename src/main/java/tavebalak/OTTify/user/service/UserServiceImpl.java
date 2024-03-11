@@ -45,6 +45,7 @@ import tavebalak.OTTify.user.dto.Response.UninterestedProgramListDTO;
 import tavebalak.OTTify.user.dto.Response.UserOttDTO;
 import tavebalak.OTTify.user.dto.Response.UserOttListDTO;
 import tavebalak.OTTify.user.dto.Response.UserProfileDTO;
+import tavebalak.OTTify.user.dto.Response.UserRoleDto;
 import tavebalak.OTTify.user.entity.User;
 import tavebalak.OTTify.user.entity.UserSubscribingOTT;
 import tavebalak.OTTify.user.repository.LikedCommunityRepository;
@@ -387,6 +388,12 @@ public class UserServiceImpl implements UserService {
             .content(r.getContent())
             .likeCnt(r.getLikeCounts())
             .build();
+    }
+
+    @Override
+    public UserRoleDto getUserRole() {
+        User user = getUser();
+        return new UserRoleDto(user.getRole());
     }
 
     private User getUser() {

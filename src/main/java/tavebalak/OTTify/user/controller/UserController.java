@@ -29,6 +29,7 @@ import tavebalak.OTTify.user.dto.Response.CommunityListWithSliceInfoDTO;
 import tavebalak.OTTify.user.dto.Response.ReviewListWithSliceInfoDTO;
 import tavebalak.OTTify.user.dto.Response.UserOttListDTO;
 import tavebalak.OTTify.user.dto.Response.UserProfileDTO;
+import tavebalak.OTTify.user.dto.Response.UserRoleDto;
 import tavebalak.OTTify.user.service.UserService;
 
 @RestController
@@ -148,5 +149,12 @@ public class UserController {
         size = 10,
         page = 0) Pageable pageable) {
         return BaseResponse.success(userService.getParticipatedDiscussion(pageable));
+    }
+
+    @ApiOperation(value = "Role 조회 api", notes = "유저의 ROLE을 조회합니다.")
+    @GetMapping("/role")
+    @ResponseStatus(HttpStatus.OK)
+    public BaseResponse<UserRoleDto> getUserRole() {
+        return BaseResponse.success(userService.getUserRole());
     }
 }
